@@ -1,26 +1,33 @@
 var:
 
+//array di ask e di bid
 ask[]
 bid[]
-
+//soldi che si vuole investire
 budget
+//quantità che si vuole comprare
+quantityBt
 
-quantityBtc
-priceToBuy
-priceToSell
-
-range = 0.5%
-
+//range di offerte valide nell'intorno di budget
+range = 0.5%(budget)
+//numero massimo di offerte da spalmare nell'intorno
 maxShpaming = 20
 
-validOOffert
+//variabile che rappresenta valori lagali
+validOffert[]
 
-budget - 5%(budget) >= validOffert <= budget + 5%(budget) ;
+
+//range di validità
+budget - 5%(budget) >= validOffert[] <= budget + 5%(budget) ;
+
+//con la dicitura "ask[]/bin[]" si intende OR ask OR bid;
+//scorro la lista di ask e di bid e prelevo SOLO i valori che rientrano nel range
+//precedentemente calcolato. questi valori vengono appoggiati nell'array validOffert[].
 
 
 for(value in ask[]/bin[]){
 	
-	if(budget - 5%(budget) >= ask[i]/bid[i] <= budget + 5%(budget) 
+	if(budget - 0.5%(budget) >= ask[i]/bid[i] <= budget + 0.5%(budget) 
 		validOffert[i]== ask[i]/bid[i]
 }
 
