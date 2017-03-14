@@ -1,0 +1,27 @@
+var:
+
+ask[]
+bid[]
+
+budget
+
+quantityBtc
+priceToBuy
+priceToSell
+
+range = 0.5%
+
+maxShpaming = 20
+
+validOOffert
+
+budget - 5%(budget) >= validOffert <= budget + 5%(budget) ;
+
+
+for(value in ask[]/bin[]){
+	
+	if(budget - 5%(budget) >= ask[i]/bid[i] <= budget + 5%(budget) 
+		validOffert[i]== ask[i]/bid[i]
+}
+
+//than place 20 order whit value in range of validOffert;
