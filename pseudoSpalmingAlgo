@@ -8,6 +8,9 @@ budget
 //quantità che si vuole comprare
 quantityBt
 
+//offerte piazzate
+order[]
+
 //range di offerte valide nell'intorno di budget
 range = 0.5%(budget)
 //numero massimo di offerte da spalmare nell'intorno
@@ -32,3 +35,15 @@ for(value in ask[]/bin[]){
 }
 
 //than place 20 order whit value in range of validOffert;
+
+//definisco il controllo con il quale mi garantisco che la media delle offerte
+//sia uguale al budget impostato
+
+//order[0] = somma di tutte le offerte
+for(i=1; i< maxSpalming; i++)
+	order[0] += order[0] + order[i];
+//se la media delle offerte è uguale al budget, piazzo le offette	
+if(order[0]/i = budget)	
+	place the offert;
+	
+	
