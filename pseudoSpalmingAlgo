@@ -40,7 +40,7 @@ for(value in ask[]/bin[]){
 //sia uguale al budget impostato
 
 //order[0] = somma di tutte le offerte
-for(i=1; i< maxSpalming; i++)
+for(i=1; i <= maxSpalming; i++)
 	order[0] += order[0] + order[i];
 //se la media delle offerte è uguale al budget, piazzo le offette	
 if(order[0]/i = budget)	
