@@ -1,0 +1,49 @@
+var:
+
+//array di ask e di bid
+ask[]
+bid[]
+//soldi che si vuole investire
+budget
+//quantità che si vuole comprare
+quantityBt
+
+//offerte piazzate
+order[]
+
+//range di offerte valide nell'intorno di budget
+range = 0.5%(budget)
+//numero massimo di offerte da spalmare nell'intorno
+maxShpaming = 20
+
+//variabile che rappresenta valori lagali
+validOffert[]
+
+
+//range di validità
+budget - 5%(budget) >= validOffert[] <= budget + 5%(budget) ;
+
+//con la dicitura "ask[]/bin[]" si intende OR ask OR bid;
+//scorro la lista di ask e di bid e prelevo SOLO i valori che rientrano nel range
+//precedentemente calcolato. questi valori vengono appoggiati nell'array validOffert[].
+
+
+for(value in ask[]/bin[]){
+	
+	if(budget - 0.5%(budget) >= ask[i]/bid[i] <= budget + 0.5%(budget) 
+		validOffert[i]== ask[i]/bid[i]
+}
+
+//than place 20 order whit value in range of validOffert;
+
+//definisco il controllo con il quale mi garantisco che la media delle offerte
+//sia uguale al budget impostato
+
+//order[0] = somma di tutte le offerte
+for(i=1; i <= maxSpalming; i++)
+	order[0] += order[0] + order[i];
+//se la media delle offerte è uguale al budget, piazzo le offette	
+if(order[0]/i = budget)	
+	place the offert;
+	
+	
