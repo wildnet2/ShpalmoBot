@@ -31,15 +31,69 @@ curl_close($ch);
 $result = json_decode($callResult, true);
 
 $elementCount = count($result['asks']);
-echo "<h2>Ask</h2>";
-for ($x = 0; $x < $elementCount; $x++) {
-    $ask[$x] = floatval($result['asks'][$x]['price']);
-}
-//ciclo ogni elemento del json bids e ne estraggo i valori
-$elementCountBids = count($result['bids']);
-for ($x = 0; $x < $elementCountBids; $x++) {
-    $bid[$x] = floatval($result['bids'][$x]['price']);
-}
+?>
+  <br/>
+  <br/>
+  <form action="" method="POST">
+    <label><b>Buy</b></label>
+    <input type="text" name="buyp" value="" placeholder="price in EUR"/>
+    <input type="text" name="buyq" value="" placeholder="quantity of BTC"/>
+    <label><b>Sell</b></label>
+    <input type="text" name="sellp" value="" placeholder="price in EUR"/>
+    <input type="text" name="sellq" value="" placeholder="quantity of BTC"/>
+    <p><input type="submit"></p>
+  </form>
+  <br style="clear:both"/>
+  <div style="float:left">
+    <h2>Muretti asks</h2>
+    <table>
+      <tr>
+        <th>price</th>
+        <th>amount</th>
+        <th>depth</th>
+      </tr>
+        <?php
+        for ($x = 0; $x < $elementCount; $x++) {
+            $ask[$x] = floatval($result['asks'][$x]['price']);
+            ?>
+          <tr>
+            <td><?= floatval($result['asks'][$x]['price']) ?></td>
+            <td><?= floatval($result['asks'][$x]['amount']) ?></td>
+            <td><?= floatval($result['asks'][$x]['depth']) ?></td>
+          </tr>
+            <?php
+        }
+        ?>
+    </table>
+  </div>
+  <div>
+    <h2>Muretti bids</h2>
+    <table>
+      <tr>
+        <th>price</th>
+        <th>amount</th>
+        <th>depth</th>
+      </tr>
+
+        <?php
+        //ciclo ogni elemento del json bids e ne estraggo i valori
+        $elementCountBids = count($result['bids']);
+        for ($x = 0; $x < $elementCountBids; $x++) {
+            $bid[$x] = floatval($result['bids'][$x]['price']);
+            ?>
+          <tr>
+            <td><?= floatval($result['bids'][$x]['price']) ?></td>
+            <td><?= floatval($result['bids'][$x]['amount']) ?></td>
+            <td><?= floatval($result['bids'][$x]['depth']) ?></td>
+          </tr>
+            <?php
+        }
+
+        ?>
+    </table>
+  </div>
+<?php
+echo "<h2>Your Ask</h2>";
 //per  verificare come riprendere il valore inserito di prezzo e quantita'
 if (isset($_POST['buyp']) && isset($_POST['buyq'])) {
 
@@ -50,13 +104,3 @@ if (isset($_POST['buyp']) && isset($_POST['buyq'])) {
 }
 
 ?>
-
-<form action="" method="POST">
-  <label><b>Buy</b></label>
-  <input type="text" name="buyp" value="" placeholder="price in EUR"/>
-  <input type="text" name="buyq" value="" placeholder="quantity of BTC"/>
-  <label><b>Sell</b></label>
-  <input type="text" name="sellp" value="" placeholder="price in EUR"/>
-  <input type="text" name="sellq" value="" placeholder="quantity of BTC"/>
-  <p><input type="submit"></p>
-</form>
