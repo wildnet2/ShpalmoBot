@@ -45,8 +45,10 @@ if (isset($_POST['buyp']) && isset($_POST['buyq'])) {
 
     $pippo = shpalm(floatval($_POST['buyp']), floatval($_POST['buyq']), $ask, $bid);
     wallEt($result);
+
+    print_r($pippo);
 }
-print_r($pippo);
+
 ?>
 
 <form action="" method="POST">
